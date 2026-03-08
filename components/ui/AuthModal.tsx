@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 "use client";
 import { useState } from "react";
 
@@ -12,12 +13,10 @@ import { Input } from "@/components/ui/input";
 
 import { cn } from "@/lib/utils";
 
-import { useSettings } from "@/app/contexts/SettingsContext";
-
 interface AuthModalProps {
   provider: string;
   isOpen: boolean;
-  onSubmit: (key: string) => void;
+  onSubmit: (value: string) => void;
 }
 
 export function AuthModal({ provider, isOpen, onSubmit }: AuthModalProps) {

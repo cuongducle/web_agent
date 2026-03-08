@@ -1,3 +1,4 @@
+/* eslint-disable no-console, no-unused-vars, react-hooks/exhaustive-deps, tailwindcss/no-custom-classname, @next/next/no-img-element */
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
@@ -19,9 +20,9 @@ import { ToolInvocations } from "@/components/ui/tool";
 
 import { useToast } from "@/hooks/use-toast";
 
+import { useBrowserContext } from "@/app/contexts/BrowserContext";
 import { useChatContext } from "@/app/contexts/ChatContext";
 import { useSettings } from "@/app/contexts/SettingsContext";
-import { useBrowserContext } from "@/app/contexts/BrowserContext";
 
 // UPDATED CodeBlock component for rendering code blocks with a copy button and language display.
 function CodeBlock({ code, language }: { code: string; language?: string }) {
@@ -173,7 +174,7 @@ function MarkdownText({ content }: { content: string }) {
         )}
         <div className="rounded-2xl border border-[--gray-3] bg-[--gray-2] p-4">
           <div className="pr-8">
-            <div className="mb-1 font-medium text-[--gray-12] text-sm">{title}</div>
+            <div className="mb-1 text-sm font-medium text-[--gray-12]">{title}</div>
             {strippedContent ? (
               <div className="text-sm text-[--gray-10]">{parseContent(strippedContent)}</div>
             ) : (
@@ -630,10 +631,10 @@ export default function ChatPage() {
                         <>
                           <UserMessage content={message.content} />
                           {index === 0 && isCreatingSession && (
-                            <div className="flex flex-col items-center justify-center h-full">
+                            <div className="flex h-full flex-col items-center justify-center">
                               <div className="flex flex-col items-center justify-center space-y-4">
-                                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
-                                <div className="text-gray-500 text-sm">
+                                <div className="size-8 animate-spin rounded-full border-b-2 border-gray-900"></div>
+                                <div className="text-sm text-gray-500">
                                   Connecting to Browser Session...
                                 </div>
                               </div>

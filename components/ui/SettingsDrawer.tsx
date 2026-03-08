@@ -1,6 +1,9 @@
+/* eslint-disable no-unused-vars, tailwindcss/no-custom-classname */
 "use client";
 
 import { useState } from "react";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { atomDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { Info, Settings } from "lucide-react";
 import { useRouter } from "next/navigation";
 
@@ -32,14 +35,11 @@ import { isLocalhost } from "@/lib/utils";
 
 import { Agent, SettingConfig, SupportedModel } from "@/types/agents";
 
+import { useBrowserContext } from "@/app/contexts/BrowserContext";
 import { useChatContext } from "@/app/contexts/ChatContext";
 import { AgentSettings, ModelSettings, useSettings } from "@/app/contexts/SettingsContext";
-import { useBrowserContext } from "@/app/contexts/BrowserContext";
 import { useAgents } from "@/app/hooks/useAgents";
 import { useOllamaModels } from "@/app/hooks/useOllamaModels";
-
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { atomDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 export function SettingsButton() {
   const { currentSettings } = useSettings();
@@ -596,10 +596,9 @@ function SettingsContent({ closeSettings }: { closeSettings: () => void }) {
                     <p className="mb-2 text-sm text-[--gray-11]">
                       1. Clone and run web-surf-agent locally first:
                       <code className="mt-1 block rounded bg-[--gray-4] p-1 text-xs">
-                        git clone https://github.com/your-username/web-surf-agent
-cd web-surf-agent
-npm install
-npm run dev
+                        {
+                          "git clone https://github.com/cuongducle/web_agent\ncd web_agent\nnpm install\nnpm run dev"
+                        }
                       </code>
                     </p>
                     <p className="mb-2 text-sm text-[--gray-11]">
@@ -772,8 +771,8 @@ npm run dev
               fontSize: "12px",
             }}
           >
-            {`git clone https://github.com/your-username/web-surf-agent
-cd web-surf-agent
+            {`git clone https://github.com/cuongducle/web_agent
+cd web_agent
 npm install
 npm run dev`}
           </SyntaxHighlighter>

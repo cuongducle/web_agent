@@ -1,5 +1,7 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import { CheckIcon } from "@radix-ui/react-icons";
+import Image from "next/image";
 
 interface ToolInvocation {
   toolCallId: string;
@@ -19,7 +21,7 @@ interface ImageResult {
 
 interface ToolRenderProps {
   toolInvocations?: ToolInvocation[];
-  onImageClick?: (src: string) => void;
+  onImageClick?: (imageSrc: string) => void;
 }
 
 /**
@@ -114,9 +116,12 @@ export function ToolInvocations({ toolInvocations, onImageClick }: ToolRenderPro
               </div>
               {state === "result" && imageResult && (
                 <div className="inline-flex h-[39px] w-[71px] flex-col items-start justify-start gap-2.5">
-                  <img
+                  <Image
                     src={imageSrc}
                     alt="Preview"
+                    width={71}
+                    height={39}
+                    unoptimized
                     className="h-[39px] cursor-pointer self-stretch rounded-lg border border-[--gray-3] transition-opacity hover:opacity-90"
                     onClick={() => onImageClick?.(imageSrc)}
                   />

@@ -3,9 +3,9 @@
 import { NavBar } from "@/components/ui/navbar";
 import { Toaster } from "@/components/ui/toaster";
 
-import { SettingsProvider } from "@/app/contexts/SettingsContext";
-import { ChatProvider } from "@/app/contexts/ChatContext";
 import { BrowserProvider } from "@/app/contexts/BrowserContext";
+import { ChatProvider } from "@/app/contexts/ChatContext";
+import { SettingsProvider } from "@/app/contexts/SettingsContext";
 
 export function LayoutContent({ children }: { children: React.ReactNode }) {
   return (

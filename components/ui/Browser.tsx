@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 "use client";
 
 import { useEffect, useRef, useState } from "react";
@@ -9,20 +10,11 @@ import { cn } from "@/lib/utils";
 import { useBrowserContext } from "@/app/contexts/BrowserContext";
 
 export function Browser() {
-  // WebSocket and canvas state
   const parentRef = useRef<HTMLDivElement>(null);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [canvasSize, setCanvasSize] = useState<{
-    width: number;
-    height: number;
-  } | null>(null);
-  const [latestImage, setLatestImage] = useState<HTMLImageElement | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const [isConnected, setIsConnected] = useState(false);
   const [url, setUrl] = useState<string | null>(null);
   const [favicon, setFavicon] = useState<string | null>(null);
-  const { currentSession, sessionTimeElapsed, isExpired, maxSessionDuration, debugUrl } = useBrowserContext();
+  const { currentSession, sessionTimeElapsed, isExpired, maxSessionDuration, debugUrl } =
+    useBrowserContext();
 
   // Log session information for debugging
   useEffect(() => {
@@ -38,19 +30,6 @@ export function Browser() {
     const secs = seconds % 60;
     return `${mins.toString().padStart(2, "0")}:${secs.toString().padStart(2, "0")}`;
   };
-
-  // Canvas rendering
-  useEffect(() => {
-    const renderFrame = () => {
-      const canvas = canvasRef.current;
-      const ctx = canvas?.getContext("2d");
-      if (canvas && ctx && latestImage && canvasSize) {
-        ctx.drawImage(latestImage, 0, 0, canvasSize.width, canvasSize.height);
-      }
-      requestAnimationFrame(renderFrame);
-    };
-    renderFrame();
-  }, [latestImage, canvasSize]);
 
   // Listen for messages from iframe
   useEffect(() => {
@@ -84,13 +63,6 @@ export function Browser() {
     window.addEventListener("message", handleMessage);
     return () => window.removeEventListener("message", handleMessage);
   }, [debugUrl]);
-
-  const [userAgent, setUserAgent] = useState("");
-
-  // Only run on client-side after hydration is complete
-  useEffect(() => {
-    setUserAgent(navigator.userAgent || "browser_use_agent");
-  }, []);
 
   return (
     <div

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 "use client";
 
 import { createContext, useContext } from "react";
@@ -34,7 +35,7 @@ export interface SurfSettings {
 
 interface SettingsContextType {
   currentSettings: SurfSettings | null;
-  updateSettings: (newSettings: {
+  updateSettings: (settings: {
     [key in keyof SurfSettings]: SurfSettings[key];
   }) => void;
 }

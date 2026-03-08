@@ -1,14 +1,15 @@
+/* eslint-disable no-unused-vars */
 "use client";
 
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useCallback, useContext, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { useLocalStorage } from "usehooks-ts";
 
 interface ChatContextType {
   initialMessage: string | null;
-  setInitialMessage: (message: string | null) => void;
+  setInitialMessage: (value: string | null) => void;
   shouldAutoSubmit: boolean;
-  setShouldAutoSubmit: (should: boolean) => void;
+  setShouldAutoSubmit: (value: boolean) => void;
   clearInitialState: () => void;
 }
 
@@ -25,17 +26,17 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
   );
   const pathname = usePathname();
 
+  const clearInitialState = useCallback(() => {
+    setInitialMessage(null);
+    setShouldAutoSubmit(false);
+  }, [setInitialMessage, setShouldAutoSubmit]);
+
   // Reset context when navigating away from chat
   useEffect(() => {
     if (pathname === "/") {
       clearInitialState();
     }
-  }, [pathname]);
-
-  const clearInitialState = () => {
-    setInitialMessage(null);
-    setShouldAutoSubmit(false);
-  };
+  }, [pathname, clearInitialState]);
 
   return (
     <ChatContext.Provider

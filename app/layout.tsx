@@ -1,3 +1,4 @@
+/* eslint-disable tailwindcss/no-custom-classname */
 import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
 import { Metadata } from "next";
@@ -29,8 +30,45 @@ const ibmPlexMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Web Surf Agent - powered by Chrome DevTools Protocol",
-  description: "Web Surf Agent - web agent demos using Chrome DevTools Protocol",
+  title: {
+    default: "Web Surf Agent",
+    template: "%s | Web Surf Agent",
+  },
+  description:
+    "An open playground for AI browser agents built with Next.js, FastAPI, and Chrome DevTools Protocol.",
+  applicationName: "Web Surf Agent",
+  keywords: [
+    "web agent",
+    "AI browser agent",
+    "browser automation",
+    "Chrome DevTools Protocol",
+    "CDP",
+    "Next.js",
+    "FastAPI",
+  ],
+  authors: [{ name: "Cuong Duc Le", url: "https://github.com/cuongducle" }],
+  creator: "Cuong Duc Le",
+  openGraph: {
+    title: "Web Surf Agent",
+    description:
+      "Build, test, and demo AI agents that browse real websites through Chrome DevTools Protocol.",
+    type: "website",
+    images: [
+      {
+        url: "/placeholder-screenshot.png",
+        width: 1920,
+        height: 999,
+        alt: "Web Surf Agent interface",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Web Surf Agent",
+    description:
+      "Build, test, and demo AI agents that browse real websites through Chrome DevTools Protocol.",
+    images: ["/placeholder-screenshot.png"],
+  },
   icons: {
     icon: "/logo.svg",
   },

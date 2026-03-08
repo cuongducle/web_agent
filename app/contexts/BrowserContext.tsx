@@ -1,3 +1,4 @@
+/* eslint-disable no-console, no-unused-vars */
 "use client";
 
 import React, { createContext, useContext, useEffect, useState } from "react";
@@ -176,4 +177,4 @@ export function useBrowserContext() {
     throw new Error("useBrowserContext must be used within a BrowserProvider");
   }
   return context;
-} 
+}

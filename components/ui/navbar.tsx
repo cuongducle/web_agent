@@ -7,8 +7,8 @@ import { useRouter } from "next/navigation";
 
 import { cn } from "@/lib/utils";
 
-import { useChatContext } from "@/app/contexts/ChatContext";
 import { useBrowserContext } from "@/app/contexts/BrowserContext";
+import { useChatContext } from "@/app/contexts/ChatContext";
 
 import { Button } from "./button";
 
@@ -55,7 +55,7 @@ export function NavBar() {
               className="h-9 gap-2 rounded-full border-[--gray-6] bg-[--gray-2] text-[--gray-11] hover:bg-[--gray-3] hover:text-[--gray-12]"
               asChild
             >
-              <Link href="https://github.com/your-username/web-surf-agent" target="_blank">
+              <Link href="https://github.com/cuongducle/web_agent" target="_blank">
                 <Github className="size-4" />
                 <span className="font-medium">GitHub</span>
               </Link>
@@ -63,8 +63,8 @@ export function NavBar() {
           </div>
 
           {/* Mobile Menu Button */}
-          <button 
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[--gray-2] text-[--gray-11] hover:bg-[--gray-3] hover:text-[--gray-12] md:hidden"
+          <button
+            className="inline-flex size-10 items-center justify-center rounded-full bg-[--gray-2] text-[--gray-11] hover:bg-[--gray-3] hover:text-[--gray-12] md:hidden"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <X className="size-5" /> : <Menu className="size-5" />}
@@ -74,8 +74,8 @@ export function NavBar() {
         {/* Mobile Menu */}
         <div
           className={cn(
-            "absolute inset-x-0 top-16 z-50 origin-top transform bg-[--gray-1] p-4 shadow-lg transition-all duration-200 ease-in-out md:hidden",
-            isMenuOpen ? "scale-y-100 opacity-100" : "scale-y-95 opacity-0 pointer-events-none"
+            "absolute inset-x-0 top-16 z-50 origin-top bg-[--gray-1] p-4 shadow-lg transition-all duration-200 ease-in-out md:hidden",
+            isMenuOpen ? "scale-y-100 opacity-100" : "pointer-events-none scale-y-95 opacity-0"
           )}
         >
           <div className="space-y-3">
@@ -97,7 +97,7 @@ export function NavBar() {
               asChild
               onClick={() => setIsMenuOpen(false)}
             >
-              <Link href="https://github.com/your-username/web-surf-agent" target="_blank">
+              <Link href="https://github.com/cuongducle/web_agent" target="_blank">
                 <Github className="size-4" />
                 <span className="font-medium">GitHub</span>
               </Link>

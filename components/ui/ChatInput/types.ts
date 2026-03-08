@@ -1,7 +1,8 @@
+/* eslint-disable no-unused-vars */
 export interface ChatInputProps {
   value: string;
-  onChange: (value: string) => void;
-  onSubmit: (e: React.FormEvent, textValue: string, files: File[]) => void;
+  onChange: (nextValue: string) => void;
+  onSubmit: (event: React.FormEvent, textValue: string, files: File[]) => void;
   disabled?: boolean;
   placeholder?: string;
   isLoading?: boolean;

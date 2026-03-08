@@ -12,9 +12,9 @@ import { useToast } from "@/hooks/use-toast";
 
 import { isLocalhost } from "@/lib/utils";
 
+import { useBrowserContext } from "./contexts/BrowserContext";
 import { useChatContext } from "./contexts/ChatContext";
 import { useSettings } from "./contexts/SettingsContext";
-import { useBrowserContext } from "./contexts/BrowserContext";
 
 export default function Home() {
   const router = useRouter();
@@ -40,7 +40,7 @@ export default function Home() {
     }, 100);
 
     return () => clearTimeout(focusTimer);
-  }, []); // Empty deps array means this runs once on mount
+  }, [clearInitialState, resetSession]);
 
   const checkApiKey = () => {
     // const provider = currentSettings?.selectedProvider;
@@ -146,14 +146,15 @@ export default function Home() {
           <div className="mt-8 flex flex-col items-center gap-6">
             <div className="h-[2px] w-24 bg-gradient-to-r from-transparent via-[--gray-8] to-transparent"></div>
             <p className="max-w-2xl text-lg leading-8 text-[--gray-11]">
-              Experience the future of web automation. Our AI agents surf and interact with websites just like humans do, powered by Chrome DevTools Protocol.
+              Experience the future of web automation. Our AI agents surf and interact with websites
+              just like humans do, powered by Chrome DevTools Protocol.
             </p>
           </div>
-          
+
           {/* Main Input Section */}
           <div className="mt-12 w-full max-w-2xl">
             <div className="relative rounded-2xl bg-[--gray-1] p-1 shadow-lg ring-1 ring-[--gray-6]">
-              <div className="absolute inset-0 bg-gradient-to-r from-[--blue-3] via-[--gray-3] to-[--purple-3] rounded-2xl blur-md opacity-50"></div>
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-[--blue-3] via-[--gray-3] to-[--purple-3] opacity-50 blur-md"></div>
               <div className="relative rounded-xl bg-[--gray-1] p-4">
                 <ChatInput
                   ref={inputRef}
@@ -181,8 +182,10 @@ export default function Home() {
                       if (currentSettings?.selectedProvider === "ollama" && !isLocalhost()) {
                         toast({
                           title: "Cannot use Ollama",
-                          className: "text-[var(--gray-12)] border border-[var(--red-11)] bg-[var(--red-2)] text-sm",
-                          description: "Please select a different model provider or run the app locally to use Ollama.",
+                          className:
+                            "text-[var(--gray-12)] border border-[var(--red-11)] bg-[var(--red-2)] text-sm",
+                          description:
+                            "Please select a different model provider or run the app locally to use Ollama.",
                         });
                       } else {
                         pendingQueryRef.current = button.text;
@@ -193,12 +196,12 @@ export default function Home() {
                     proceedToChat(button.text);
                   }
                 }}
-                className="group relative overflow-hidden rounded-2xl bg-[--gray-2] p-6 shadow-md transition-all hover:shadow-lg hover:scale-[1.02] hover:bg-[--gray-3]"
+                className="group relative overflow-hidden rounded-2xl bg-[--gray-2] p-6 shadow-md transition-all hover:scale-[1.02] hover:bg-[--gray-3] hover:shadow-lg"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[--gray-4] to-transparent opacity-0 group-hover:opacity-10"></div>
                 <div className="relative z-10">
                   <div className="flex items-center gap-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[--gray-4]">
+                    <div className="flex size-10 items-center justify-center rounded-full bg-[--gray-4]">
                       <Image
                         src={button.icon}
                         alt={`${button.title} icon`}

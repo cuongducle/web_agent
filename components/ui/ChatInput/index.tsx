@@ -2,10 +2,8 @@
 
 import React, { forwardRef, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Paperclip, X } from "lucide-react";
+import { X } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { SettingsButton } from "@/components/ui/SettingsDrawer";
 
 import { SendButton } from "./SendButton";
@@ -27,13 +25,6 @@ export const ChatInput = forwardRef<HTMLTextAreaElement, ChatInputProps>(
     // Track local attachments
     const [attachments, setAttachments] = useState<File[]>([]);
     const fileInputRef = useRef<HTMLInputElement>(null);
-
-    // A helper to open the hidden file input
-    function handleOpenFileDialog() {
-      if (attachments.length < 5 && fileInputRef.current) {
-        fileInputRef.current.click();
-      }
-    }
 
     // When user selects files
     function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
