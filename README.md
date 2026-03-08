@@ -6,8 +6,6 @@ It combines a Next.js frontend, a FastAPI backend, and multiple agent backends s
 
 ![Web Surf Agent screenshot](public/web-surf-agent-screenshot.png)
 
-![Web Surf Agent chat session](public/web-surf-agent-chat-screenshot.png)
-
 ## Why it is useful
 
 - Run browser-based agent experiments against a real Chrome session
