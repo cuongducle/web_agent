@@ -1,17 +1,44 @@
-# web-surf-agent
+# Web Agent Playground
 
-A playground for testing web agents powered by Chrome DevTools Protocol (CDP). Experience how different AI agents can surf and interact with the web just like humans do.
+`web_agent` is a web agent playground for browser automation experiments with Next.js, FastAPI, and Chrome DevTools Protocol (CDP).
 
-## 🌟 Features
+It is built for people who want to test how AI agents interact with real websites, compare different agent behaviors, and visualize browser-driven workflows in a cleaner interface than raw scripts alone.
 
-- Test multiple web agents in a controlled environment
-- Real-time browser interaction visualization
-- Support for various AI providers (Claude, GPT-4, etc.)
-- Built with modern web technologies (Next.js 15, FastAPI)
-- Beautiful UI powered by Shadcn UI and Tailwind CSS
-- Direct Chrome DevTools Protocol (CDP) integration for browser control
+This repository is especially relevant for searches such as:
 
-## 🚀 Getting Started
+- web agent playground
+- browser automation with CDP
+- Chrome DevTools Protocol agent
+- Next.js FastAPI browser automation
+- AI web agent demo
+- browser agent UI
+
+## What It Does
+
+- run web agent experiments against a real browser
+- connect agents through Chrome DevTools Protocol (CDP)
+- visualize browser interactions in real time
+- compare different AI providers and agent flows
+- use a Next.js frontend with a FastAPI backend for agent orchestration
+
+## Best For
+
+- developers building browser automation tools
+- teams experimenting with AI agents that act on websites
+- people who want a demoable interface for CDP-driven workflows
+- prototyping web agents before moving to production systems
+
+## Tech Stack
+
+- Next.js 15
+- FastAPI
+- Chrome DevTools Protocol (CDP)
+- Shadcn UI
+- Tailwind CSS
+- Vercel AI SDK
+- LangChain
+
+## Getting Started
 
 ### Prerequisites
 
@@ -23,6 +50,10 @@ A playground for testing web agents powered by Chrome DevTools Protocol (CDP). E
 
 1. Clone the repository:
 
+```bash
+git clone https://github.com/cuongducle/web_agent.git
+cd web_agent
+```
 
 2. Install frontend dependencies:
 
@@ -85,6 +116,28 @@ This will start both the Next.js frontend (port 3001) and FastAPI backend (port 
 
 Visit [http://localhost:3001](http://localhost:3001) to start using web-surf-agent!
 
+## Common Use Cases
+
+- test a web agent against a local Chrome instance
+- prototype browser automation flows with AI
+- inspect how an agent clicks, navigates, and reacts to page state
+- compare provider behavior in the same browser-driven task
+- demo an agent UI built with Next.js and FastAPI
+
+## Search Terms
+
+People usually find this project through phrases such as:
+
+- web agent
+- web agent playground
+- browser automation
+- Chrome DevTools Protocol
+- CDP browser automation
+- AI browser agent
+- Next.js FastAPI automation
+- browser agent demo
+- website automation agent
+
 ## 🤝 Contributing
 
 We welcome contributions! Here's how you can help:
@@ -99,12 +152,6 @@ We welcome contributions! Here's how you can help:
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 💪 Built With
+## Why This Repo Exists
 
-- [Next.js 15](https://nextjs.org/) - React Framework
-- [FastAPI](https://fastapi.tiangolo.com/) - Python Backend
-- [Chrome DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/) - Browser Automation
-- [Shadcn UI](https://ui.shadcn.com/) - UI Components
-- [Tailwind CSS](https://tailwindcss.com/) - Styling
-- [Vercel AI SDK](https://sdk.vercel.ai/) - AI Chat Interface
-- [Langchain](https://python.langchain.com/docs/introduction/) - Agent Framework
+Many web agent demos stop at raw scripts or terminal output. This project exists to make browser automation experiments more inspectable, demo-friendly, and easier to iterate on with a modern web UI.
