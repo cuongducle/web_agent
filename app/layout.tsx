@@ -29,7 +29,10 @@ const ibmPlexMono = localFont({
   variable: "--font-ibm-plex-mono",
 });
 
+const appUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3001";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(appUrl),
   title: {
     default: "Web Surf Agent",
     template: "%s | Web Surf Agent",
@@ -55,9 +58,9 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/placeholder-screenshot.png",
-        width: 1920,
-        height: 999,
+        url: "/web-surf-agent-screenshot.png",
+        width: 1440,
+        height: 1456,
         alt: "Web Surf Agent interface",
       },
     ],
@@ -67,10 +70,10 @@ export const metadata: Metadata = {
     title: "Web Surf Agent",
     description:
       "Build, test, and demo AI agents that browse real websites through Chrome DevTools Protocol.",
-    images: ["/placeholder-screenshot.png"],
+    images: ["/web-surf-agent-screenshot.png"],
   },
   icons: {
-    icon: "/logo.svg",
+    icon: "/steel_logo.svg",
   },
 };
 

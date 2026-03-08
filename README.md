@@ -4,7 +4,7 @@ Web Surf Agent is an open playground for building and testing AI agents that bro
 
 It combines a Next.js frontend, a FastAPI backend, and multiple agent backends so you can inspect browser actions, compare providers, and demo web automation in a UI that is easier to share than raw scripts.
 
-![Web Surf Agent screenshot](public/placeholder-screenshot.png)
+![Web Surf Agent screenshot](public/web-surf-agent-screenshot.png)
 
 ## Why it is useful
 
